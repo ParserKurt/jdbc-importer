@@ -1,0 +1,75 @@
+[2017-11-24 13:47:38,932][INFO ][node                     ] [Darkoth] version[2.4.6], pid[25114], build[5376dca/2017-07-18T12:17:44Z]
+[2017-11-24 13:47:38,934][INFO ][node                     ] [Darkoth] initializing ...
+[2017-11-24 13:47:39,628][INFO ][plugins                  ] [Darkoth] modules [reindex, lang-expression, lang-groovy], plugins [], sites []
+[2017-11-24 13:47:40,281][INFO ][env                      ] [Darkoth] using [1] data paths, mounts [[/ (/dev/sda2)]], net usable_space [730.6gb], net total_space [912.4gb], spins? [possibly], types [ext4]
+[2017-11-24 13:47:40,281][INFO ][env                      ] [Darkoth] heap size [990.7mb], compressed ordinary object pointers [true]
+[2017-11-24 13:47:43,168][INFO ][node                     ] [Darkoth] initialized
+[2017-11-24 13:47:43,168][INFO ][node                     ] [Darkoth] starting ...
+[2017-11-24 13:47:43,386][INFO ][transport                ] [Darkoth] publish_address {127.0.0.1:9300}, bound_addresses {[::1]:9300}, {127.0.0.1:9300}
+[2017-11-24 13:47:43,417][INFO ][discovery                ] [Darkoth] elasticsearch/GjrDQOs8T7qBn_Z4WpCD7w
+[2017-11-24 13:47:46,543][INFO ][cluster.service          ] [Darkoth] new_master {Darkoth}{GjrDQOs8T7qBn_Z4WpCD7w}{127.0.0.1}{127.0.0.1:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
+[2017-11-24 13:47:46,585][INFO ][http                     ] [Darkoth] publish_address {127.0.0.1:9200}, bound_addresses {[::1]:9200}, {127.0.0.1:9200}
+[2017-11-24 13:47:46,585][INFO ][node                     ] [Darkoth] started
+[2017-11-24 13:47:46,678][INFO ][gateway                  ] [Darkoth] recovered [0] indices into cluster_state
+[2017-11-24 13:51:35,833][INFO ][cluster.metadata         ] [Darkoth] [twitter] creating index, cause [auto(index api)], templates [], shards [5]/[1], mappings []
+[2017-11-24 13:51:37,446][INFO ][cluster.routing.allocation] [Darkoth] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[twitter][3], [twitter][3], [twitter][4]] ...]).
+[2017-11-24 13:51:37,783][INFO ][cluster.metadata         ] [Darkoth] [twitter] create_mapping [user]
+[2017-11-24 13:52:29,508][DEBUG][action.index             ] [Darkoth] failed to execute [index {[twitter][tweet][1], source[_na_]}] on [[twitter][3]]
+MapperParsingException[failed to parse]; nested: NotXContentException[Compressor detection can only be called on some xcontent bytes or compressed xcontent bytes];
+	at org.elasticsearch.index.mapper.DocumentParser.parseDocument(DocumentParser.java:156)
+	at org.elasticsearch.index.mapper.DocumentMapper.parse(DocumentMapper.java:309)
+	at org.elasticsearch.index.shard.IndexShard.prepareIndex(IndexShard.java:584)
+	at org.elasticsearch.index.shard.IndexShard.prepareIndexOnPrimary(IndexShard.java:563)
+	at org.elasticsearch.action.index.TransportIndexAction.prepareIndexOperationOnPrimary(TransportIndexAction.java:211)
+	at org.elasticsearch.action.index.TransportIndexAction.executeIndexRequestOnPrimary(TransportIndexAction.java:223)
+	at org.elasticsearch.action.index.TransportIndexAction.shardOperationOnPrimary(TransportIndexAction.java:157)
+	at org.elasticsearch.action.index.TransportIndexAction.shardOperationOnPrimary(TransportIndexAction.java:66)
+	at org.elasticsearch.action.support.replication.TransportReplicationAction$PrimaryPhase.doRun(TransportReplicationAction.java:657)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at org.elasticsearch.action.support.replication.TransportReplicationAction$PrimaryOperationTransportHandler.messageReceived(TransportReplicationAction.java:287)
+	at org.elasticsearch.action.support.replication.TransportReplicationAction$PrimaryOperationTransportHandler.messageReceived(TransportReplicationAction.java:279)
+	at org.elasticsearch.transport.RequestHandlerRegistry.processMessageReceived(RequestHandlerRegistry.java:77)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:378)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.elasticsearch.common.compress.NotXContentException: Compressor detection can only be called on some xcontent bytes or compressed xcontent bytes
+	at org.elasticsearch.common.compress.CompressorFactory.compressor(CompressorFactory.java:85)
+	at org.elasticsearch.common.xcontent.XContentHelper.createParser(XContentHelper.java:50)
+	at org.elasticsearch.index.mapper.DocumentParser.parseDocument(DocumentParser.java:92)
+	... 17 more
+[2017-11-24 13:52:38,670][DEBUG][action.index             ] [Darkoth] failed to execute [index {[twitter][tweet][1], source[_na_]}] on [[twitter][3]]
+MapperParsingException[failed to parse]; nested: NotXContentException[Compressor detection can only be called on some xcontent bytes or compressed xcontent bytes];
+	at org.elasticsearch.index.mapper.DocumentParser.parseDocument(DocumentParser.java:156)
+	at org.elasticsearch.index.mapper.DocumentMapper.parse(DocumentMapper.java:309)
+	at org.elasticsearch.index.shard.IndexShard.prepareIndex(IndexShard.java:584)
+	at org.elasticsearch.index.shard.IndexShard.prepareIndexOnPrimary(IndexShard.java:563)
+	at org.elasticsearch.action.index.TransportIndexAction.prepareIndexOperationOnPrimary(TransportIndexAction.java:211)
+	at org.elasticsearch.action.index.TransportIndexAction.executeIndexRequestOnPrimary(TransportIndexAction.java:223)
+	at org.elasticsearch.action.index.TransportIndexAction.shardOperationOnPrimary(TransportIndexAction.java:157)
+	at org.elasticsearch.action.index.TransportIndexAction.shardOperationOnPrimary(TransportIndexAction.java:66)
+	at org.elasticsearch.action.support.replication.TransportReplicationAction$PrimaryPhase.doRun(TransportReplicationAction.java:657)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at org.elasticsearch.action.support.replication.TransportReplicationAction$PrimaryOperationTransportHandler.messageReceived(TransportReplicationAction.java:287)
+	at org.elasticsearch.action.support.replication.TransportReplicationAction$PrimaryOperationTransportHandler.messageReceived(TransportReplicationAction.java:279)
+	at org.elasticsearch.transport.RequestHandlerRegistry.processMessageReceived(RequestHandlerRegistry.java:77)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:378)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.elasticsearch.common.compress.NotXContentException: Compressor detection can only be called on some xcontent bytes or compressed xcontent bytes
+	at org.elasticsearch.common.compress.CompressorFactory.compressor(CompressorFactory.java:85)
+	at org.elasticsearch.common.xcontent.XContentHelper.createParser(XContentHelper.java:50)
+	at org.elasticsearch.index.mapper.DocumentParser.parseDocument(DocumentParser.java:92)
+	... 17 more
+[2017-11-24 13:53:00,640][INFO ][cluster.metadata         ] [Darkoth] [twitter] create_mapping [tweet]
+[2017-11-24 14:07:57,072][INFO ][cluster.metadata         ] [Darkoth] [inbox] creating index, cause [auto(index api)], templates [], shards [5]/[1], mappings []
+[2017-11-24 14:07:58,137][INFO ][cluster.routing.allocation] [Darkoth] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[inbox][4]] ...]).
+[2017-11-24 14:07:58,250][INFO ][cluster.metadata         ] [Darkoth] [inbox] create_mapping [user]
+[2017-11-24 14:09:28,912][INFO ][cluster.metadata         ] [Darkoth] [inbox] update_mapping [user]
+[2017-11-24 14:20:37,171][INFO ][node                     ] [Darkoth] stopping ...
+[2017-11-24 14:20:38,033][INFO ][node                     ] [Darkoth] stopped
+[2017-11-24 14:20:38,034][INFO ][node                     ] [Darkoth] closing ...
+[2017-11-24 14:20:38,051][INFO ][node                     ] [Darkoth] closed
